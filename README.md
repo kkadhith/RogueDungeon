@@ -9,18 +9,9 @@ Authors: [Nathan Lee](https://github.com/ENathanLee) [Adhith Karthikeyan](https:
  * One design pattern we will incorporate in this project is an abstract factory pattern. Throughout the game, the main character will be leveling up and increasing their stats. Enemies must dynamically adapt to each "stage" in the game i.e., early, mid, and late stages of the game. Some weapons are stronger and enemies toward the late stages of the game will use strong weapons to challenge the main character. To simplify the creation of groups of hostile enemies, a general factory "HostileFactory" is responsible for creating different "sets" of enemies.  
  * Another design pattern that we will incorporate is the decorator pattern. In almost all RPGs, weapons/tools can be upgraded or modified. A single weapon can have many combinations of modifications, and creating a subclass for every modification of a weapon/tool can quickly get overwhelming. A decorator can simplify this problem since a single class can modify the base weapon(s).
 
- > ## Phase II
- > In addition to completing the "Class Diagram" section below, you will need to 
- > * Set up your GitHub project board as a Kanban board for the project. It should have columns that map roughly to 
- >   * Backlog, TODO, In progress, In testing, Done
- >   * You can change these or add more if you'd like, but we should be able to identify at least these.
- > * There is no requirement for automation in the project board but feel free to explore those options.
- > * Create an "Epic" (note) for each feature and each design pattern and assign them to the appropriate team member. Place these in the `Backlog` column
- > * Complete your first *sprint planning* meeting to plan out the next 7 days of work.
- >   * Create smaller development tasks as issues and assign them to team members. Place these in the `TODO` column.
- >   * These cards should represent roughly 7 days worth of development time for your team, taking you until your first meeting with the TA
 ## Class Diagram
- > Include a class diagram(s) for each design pattern and a description of the diagram(s). Your class diagram(s) should include all the main classes you plan for the project. This should be in sufficient detail that another group could pick up the project this point and successfully complete it. Use proper OMT notation (as discussed in the course slides). You may combine multiple design patterns into one diagram if you'd like, but it needs to be clear which portion of the diagram represents which design pattern (either in the diagram or in the description). 
+![Generic Text RPG(1)](https://user-images.githubusercontent.com/24882134/117527319-f02b2980-af7f-11eb-9d41-9f99c9fbfb47.png)
+This class diagram is a representation of the Abstract Factory Design pattern, since a single "EntityFactory" creates a factory that then creates entities that change based on the stages of the game (Early, Mid, Late). The diagram is not a complete representation of the game--we believe we need a better understanding of Factory Design Patterns, which will be gone over next week in class. Since this game has many different entities, objects, and customization features, it quickly becomes very complex. We believe our model needs improvement, so we will be getting TA guidance for our diagram design.
  
  > ## Phase III
  > You will need to schedule a check-in with the TA (during lab hours or office hours). Your entire team must be present. 
