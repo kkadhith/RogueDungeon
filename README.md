@@ -1,37 +1,17 @@
- > As you complete each section you **must** remove the prompt text. Every *turnin* of this project includes points for formatting of this README so keep it clean and keep it up to date. 
- > Prompt text is any lines beginning with "\>"
- > Replace anything between \<...\> with your project specifics and remove angle brackets. For example, you need to name your project and replace the header right below this line with that title (no angle brackets). 
 # Generic Text RPG
  
- > Authors: [Nathan Lee](https://github.com/ENathanLee) [Adhith Karthikeyan](https://github.com/kkadhith) [Elijah Fang](https://githhub.com/efang006) 
+Authors: [Nathan Lee](https://github.com/ENathanLee) [Adhith Karthikeyan](https://github.com/kkadhith) [Elijah Fang](https://githhub.com/efang006) 
  
- > ## Expectations
- > * Incorporate **at least two** distinct design patterns. You need to include at least *one* design pattern that we will teach this session:
- >   * Composite, Strategy, Abstract Factory, Visitor, or Decorator
- > * All design patterns need to be linked together (it can't be two distinct projects)
- > * Your project should be implemented in C++. If you wish to choose anoher programming language (e.g. Java, Python), please discuss with your lab TA to obtain permission.
- > * You can incorporate additional technologies/tools but they must be approved (in writing) by the instructor or the TA.
- > * Each member of the group **must** be committing code regularly and make sure their code is correctly attributed to them. We will be checking attributions to determine if there was equal contribution to the project.
-> * All project phases are to be submitted to this GitHub repository. You should modify this README file to reflect the different phases of the project. In addition, you should regularly hold sprint meetings with your group.
-
 ## Project Description
- > * This project is interesting as an opportunity to design a game and experience the challenges in doing so.
- > * We will primarily be using C++ as the backbone of our project. Additionally, we will be using Cmake. The C++ standard library provides everything we need to make this game. 
- > * Player input to determine their choices throughout the game. Some examples include player creation, location, and enemies. Decisions made by the player will impact how the game plays out. Since the entire program will be done in the command line, the output will be in ascii.
- > * One design pattern we will incorporate in this project is a composite pattern. For example, the player and enemies will all have health, mana, and other RPG stats. Since they all share these same common stats, we can have a single base instance of a class that defines a player, enemy, or location. Characters, locations, and players would then be uniquely defined as children of the base class. Another design pattern that we will incorporate is the decorator pattern. In almost all RPGs, weapons/tools can be upgraded or modified. A single weapon can have many combinations of modifications, and creating a subclass for every modification of a weapon/tool can quickly get overwhelming. A decorator can simplify this problem since a single class can modify the base weapon(s).  
+ * This project is interesting as an opportunity to design a game and experience the challenges in doing so.
+ * We will primarily be using C++ as the backbone of our project. Additionally, we will be using Cmake. The C++ standard library provides everything we need to make this game. 
+ * Player input to determine their choices throughout the game. Some examples include player creation, location, and enemies. Decisions made by the player will impact how the game plays out. Since the entire program will be done in the command line, the output will be in ascii.
+ * One design pattern we will incorporate in this project is an abstract factory pattern. Throughout the game, the main character will be leveling up and increasing their stats. Enemies must dynamically adapt to each "stage" in the game i.e., early, mid, and late stages of the game. Some weapons are stronger and enemies toward the late stages of the game will use strong weapons to challenge the main character. To simplify the creation of groups of hostile enemies, a general factory "HostileFactory" is responsible for creating different "sets" of enemies.  
+ * Another design pattern that we will incorporate is the decorator pattern. In almost all RPGs, weapons/tools can be upgraded or modified. A single weapon can have many combinations of modifications, and creating a subclass for every modification of a weapon/tool can quickly get overwhelming. A decorator can simplify this problem since a single class can modify the base weapon(s).
 
- > ## Phase II
- > In addition to completing the "Class Diagram" section below, you will need to 
- > * Set up your GitHub project board as a Kanban board for the project. It should have columns that map roughly to 
- >   * Backlog, TODO, In progress, In testing, Done
- >   * You can change these or add more if you'd like, but we should be able to identify at least these.
- > * There is no requirement for automation in the project board but feel free to explore those options.
- > * Create an "Epic" (note) for each feature and each design pattern and assign them to the appropriate team member. Place these in the `Backlog` column
- > * Complete your first *sprint planning* meeting to plan out the next 7 days of work.
- >   * Create smaller development tasks as issues and assign them to team members. Place these in the `TODO` column.
- >   * These cards should represent roughly 7 days worth of development time for your team, taking you until your first meeting with the TA
 ## Class Diagram
- > Include a class diagram(s) for each design pattern and a description of the diagram(s). Your class diagram(s) should include all the main classes you plan for the project. This should be in sufficient detail that another group could pick up the project this point and successfully complete it. Use proper OMT notation (as discussed in the course slides). You may combine multiple design patterns into one diagram if you'd like, but it needs to be clear which portion of the diagram represents which design pattern (either in the diagram or in the description). 
+![Generic Text RPG(1)](https://user-images.githubusercontent.com/24882134/117527319-f02b2980-af7f-11eb-9d41-9f99c9fbfb47.png)
+This class diagram is a representation of the Abstract Factory Design pattern, since a single "EntityFactory" creates a factory that then creates entities that change based on the stages of the game (Early, Mid, Late). The diagram is not a complete representation of the game--we believe we need a better understanding of Factory Design Patterns, which will be gone over next week in class. Since this game has many different entities, objects, and customization features, it quickly becomes very complex. We believe our model needs improvement, so we will be getting TA guidance for our diagram design.
  
  > ## Phase III
  > You will need to schedule a check-in with the TA (during lab hours or office hours). Your entire team must be present. 
