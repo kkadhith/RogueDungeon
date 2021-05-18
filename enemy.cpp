@@ -4,6 +4,7 @@ Enemy::Enemy(std::string n, int l, double h, double a)
 {
 	fullname = n;
 	level = l;
-	health = h;
+	maxHealth = h;
+	currHealth = maxHealth;
 	attack = a;
 }
