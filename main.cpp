@@ -12,11 +12,11 @@ int main()
 	while(game.IsPlaying()) {
 	    cin >> dec;
 	    if(dec == "quit")
-		game.Quit();
+		    game.Quit();
 	    if(dec == "dungeon")
-		//game.EnterDungeon();
+		    //game.EnterDungeon();
 	    if(dec == "shop")
-		//game.Shop();
+		    //game.Shop();
 
 
 	}
