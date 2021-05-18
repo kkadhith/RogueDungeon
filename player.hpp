@@ -7,6 +7,7 @@ class Player : public Entity {
 	Player();
 	Player(std::string);
 	~Player();
+	virtual void attack(Entity* target);
 };
 
 #endif
