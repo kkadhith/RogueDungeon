@@ -10,6 +10,8 @@ public:
 	void Quit() { play = false;}
 	void Fight();
 	bool IsPlaying() { return play; }
+	void Shop();
+	void EnterDungeon();
 
 private:
 	//Player player;

@@ -13,6 +13,12 @@ int main()
 	    cin >> dec;
 	    if(dec == "quit")
 		game.Quit();
+	    if(dec == "dungeon")
+		//game.EnterDungeon();
+	    if(dec == "shop")
+		//game.Shop();
+
+
 	}
 	return 0;
 }
