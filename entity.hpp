@@ -12,7 +12,7 @@ private:
 	double attack;
 public:
 	Entity() { }
-	virtual ~Entity() { }
+	virtual ~Entity() { std::cout << fullname << " has died!" << endl; }
 	std::string getFullname() const { return fullname; }
 	int getLevel() const { return level; }
 	double getMaxHealth() const { return maxHealth; }
