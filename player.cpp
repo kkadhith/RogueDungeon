@@ -3,16 +3,34 @@
 Player::Player()
 {
 	fullname = "Player";
-	health = 100.0;	
+	maxHealth = 100.0;
+	currHealth = maxHealth;
+	attack = 10.0;
+	level = 1;	
 }
 
 Player::Player(std::string name)
 {
 	fullname = name;
-	health = 100.0;
+	maxHealth = 100.0;
+	currHealth = maxHealth;
+	attack = 10.0;
+	level = 1;
 }
 
-void Player::attack(Entity* target)
+void Player::levelUp()
 {
-	target->setHealth(target->getHealth() - this->getAttack());
+	level++;
+	health += 5.0;
+	attack += 2.5;
+}
+
+void Player::updateEXP(int exp)
+{
+	experiencePoints = experiencePoints + exp;
+	if(experiencePoints >= 100)
+	{
+		levelUp();
+		experiencePoints = experiencePoints - 100;	
+	}	
 }

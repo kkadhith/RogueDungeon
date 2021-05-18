@@ -1,13 +1,9 @@
 #include "enemy.hpp"
 
-Enemy::Enemy(std::string n, double h, double a)
+Enemy::Enemy(std::string n, int l, double h, double a)
 {
 	fullname = n;
+	level = l;
 	health = h;
 	attack = a;
-}
-
-void Enemy::attack(Entity* target)
-{
-	target->setHealth(target->getHealth() - (this->getAttack()/2.0));
 }

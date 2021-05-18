@@ -4,9 +4,8 @@
 #include "entity.hpp"
 
 class Enemy : public Entity {
-	Enemy(std::string, double, double);
+	Enemy(std::string, int, double, double);
 	~Enemy();
-	virtual void attack(Entity* target);
 };
 
 #endif

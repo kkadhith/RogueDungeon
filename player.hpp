@@ -4,10 +4,15 @@
 #include "entity.hpp"
 
 class Player : public Entity {
+private:
+	int experiencePoints;
+public:
 	Player();
 	Player(std::string);
 	~Player();
-	virtual void attack(Entity* target);
+	void levelUp();
+	void updateEXP(int exp);
+	int getEXP() const { return experiencePoints; }
 };
 
 #endif

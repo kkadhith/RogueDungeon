@@ -6,23 +6,27 @@
 class Entity {
 private:
 	std::string fullname;
-	double health;
+	int level;
+	double maxHealth;
+	double currHealth;
 	double attack;
 public:
 	Entity() { }
 	virtual ~Entity() { }
 	std::string getFullname() const { return fullname; }
-	double getHealth() const { return health; }
+	int getLevel() const { return level; }
+	double getMaxHealth() const { return maxHealth; }
+	double getCurrHealth() const { return currHealth; }
 	double getAttack() const { return attack; }
 	
 	// I'm thinking that setters can be used for leveling up and to update during attack()
 
-	void setHealth(double h) { health = h; } 
+	void setLevel(int l) { level = l; }
+	void setMaxHealth(double h) { maxHealth = h; }
+	void setCurrHealth(double h) { currHealth = h; } 
 	void setAttack(double a) { attack = a; }
 
-	// Different computations per class child. Simply put: Health = Health - Attack
-
-	virtual void attack(Entity*) = 0;
+	void attack(Entity*);
 };
 
 #endif
