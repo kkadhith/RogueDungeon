@@ -7,9 +7,14 @@ class Entity {
 private:
 	std::string fullname;
 	int level;
+	// 1 = Warrior, 2 = Archer, 3 = Magician, 4 = Assassin
+	int role;
 	double maxHealth;
 	double currHealth;
 	double attack;
+	double defense;
+	double magic;
+	double speed;
 public:
 	Entity() { }
 	virtual ~Entity() { std::cout << fullname << " has died!" << endl; }
@@ -18,6 +23,9 @@ public:
 	double getMaxHealth() const { return maxHealth; }
 	double getCurrHealth() const { return currHealth; }
 	double getAttack() const { return attack; }
+	double getDefense() const { return defense; }
+	double getMagic() const { return magic; }
+	double getSpeed() const { return speed; }
 	
 	// I'm thinking that setters can be used for leveling up and to update during attack()
 
@@ -25,6 +33,9 @@ public:
 	void setMaxHealth(double h) { maxHealth = h; }
 	void setCurrHealth(double h) { currHealth = h; } 
 	void setAttack(double a) { attack = a; }
+	void setDefense(double d) { defense = d; }
+	void setMagic(double m) { magic = m; }
+	void setSpeed(double s) { speed = s; }
 
 	void attack(Entity*);
 };
