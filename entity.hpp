@@ -4,13 +4,14 @@
 #include <string>
 
 class Entity {
-private:
+protected:
 	std::string fullname;
 	int level;
 	// 1 = Warrior, 2 = Archer, 3 = Magician, 4 = Assassin
 	int role;
 	double maxHealth;
 	double currHealth;
+	// Stats below will be set in role classes
 	double attack;
 	double defense;
 	double magic;
