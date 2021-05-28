@@ -4,6 +4,7 @@
 #include "player.hpp"
 
 class Archer : public Player {
+public:
 	Archer(){
 		attack = 7.5;
 		defense = 5.0;

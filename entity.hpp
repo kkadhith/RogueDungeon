@@ -2,6 +2,7 @@
 #define __ENTITY_HPP__
 
 #include <string>
+#include <iostream>
 
 class Entity {
 protected:
@@ -18,7 +19,7 @@ protected:
 	double speed;
 public:
 	Entity() { }
-	virtual ~Entity() { std::cout << fullname << " has died!" << endl; }
+	virtual ~Entity() { std::cout << fullname << " has died!" << std::endl; }
 	std::string getFullname() const { return fullname; }
 	int getLevel() const { return level; }
 	double getMaxHealth() const { return maxHealth; }
@@ -38,7 +39,7 @@ public:
 	void setMagic(double m) { magic = m; }
 	void setSpeed(double s) { speed = s; }
 
-	void attack(Entity*);
+	void fight(Entity*);
 };
 
 #endif

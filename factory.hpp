@@ -1,10 +1,18 @@
 #ifndef __FACTORY_HPP__
 #define __FACTORY_HPP__
 
+#include <iostream>
+#include "player.hpp"
+#include "warrior.hpp"
+#include "archer.hpp"
+#include "magician.hpp"
+#include "assassin.hpp"
+
 class Factory {
 public:
 	Factory() {}
-	changeRoles(int roleSelect)
+
+	Player* changeRoles(int roleSelect)
 	{
 		Player* temp;
 		switch(roleSelect)
@@ -22,9 +30,10 @@ public:
 				temp = new Assassin();
 				break;
 			default:
-				std::cout << "Invalid input" << endl;
+				std::cout << "Invalid input" << std::endl;
 				break;	
 		}
+		return temp;
 	}
 };
 

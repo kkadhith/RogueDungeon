@@ -5,7 +5,6 @@ Player::Player()
 	fullname = "Player";
 	maxHealth = 100.0;
 	currHealth = maxHealth;
-	attack = 10.0;
 	level = 1;	
 }
 
@@ -14,7 +13,6 @@ Player::Player(std::string name)
 	fullname = name;
 	maxHealth = 100.0;
 	currHealth = maxHealth;
-	attack = 10.0;
 	level = 1;
 }
 

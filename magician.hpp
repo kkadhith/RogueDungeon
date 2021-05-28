@@ -4,6 +4,7 @@
 #include "player.hpp"
 
 class Magician : public Player {
+public:
 	Magician() {
 		attack = 2.5;
 		defense = 5.0;
