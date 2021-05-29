@@ -20,5 +20,10 @@ int main(int argc, char **argv) {
 TEST(BasicInitializationTest, NewPlayer)
 {
 	Entity* player = new Player();
+	Entity* enemy = new Enemy();
+	player->fight(enemy);
+	int enemyCurrHealth = enemy->getCurrHealth();
+	cout << enemyCurrHealth << endl;
 	delete player;
+	delete enemy;
 }

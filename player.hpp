@@ -2,6 +2,7 @@
 #define __PLAYER_HPP__
 
 #include "entity.hpp"
+#include <iostream>
 
 class Player : public Entity {
 private:

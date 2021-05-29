@@ -39,7 +39,14 @@ public:
 	void setMagic(double m) { magic = m; }
 	void setSpeed(double s) { speed = s; }
 
-	void fight(Entity*);
-};
+	void fight(Entity* target)
+	{
+		target->setCurrHealth(target->getCurrHealth() - this->attack);
+		if(target->getCurrHealth() <= 0.0)
+		{
+			delete target;
+		}
+	}
+	};
 
 #endif
