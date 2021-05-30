@@ -2,6 +2,7 @@
 #define __FACTORY_HPP__
 
 #include <iostream>
+#include <string>
 #include "player.hpp"
 #include "warrior.hpp"
 #include "archer.hpp"
@@ -12,13 +13,14 @@ class Factory {
 public:
 	Factory() {}
 
-	Player* changeRoles(int roleSelect)
+	Player* selectRole(int roleInt)
 	{
 		Player* temp;
-		switch(roleSelect)
+		std::string username = "Elijah Test Fang";
+		switch(roleInt)
 		{
 			case 1:
-				temp = new Warrior();			
+				temp = new Warrior(username);			
 				break;
 			case 2:
 				temp = new Archer();

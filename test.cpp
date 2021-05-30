@@ -20,10 +20,31 @@ int main(int argc, char **argv) {
 TEST(BasicInitializationTest, NewPlayer)
 {
 	Entity* player = new Player();
-	Entity* enemy = new Enemy();
-	player->fight(enemy);
-	int enemyCurrHealth = enemy->getCurrHealth();
-	cout << enemyCurrHealth << endl;
+	EXPECT_EQ(player->getCurrHealth(), 100.0);
 	delete player;
-	delete enemy;
+}
+
+TEST(BasicInitializationTest, NewWarrior)
+{
+	Entity* player = new Warrior();
+	cout << "Curr Health: " << player->getCurrHealth() << endl << "Max Health: " << player->getMaxHealth() << endl << "Player Name: " << player->getFullname() << endl;
+	delete player;
+}
+
+TEST(BasicInitializationTest, FactoryTest)
+{
+	Factory factory;
+	Entity* player = factory.selectRole(1);
+	cout << player->getFullname() << endl;
+	EXPECT_EQ(player->getFullname(), "Elijah Test Fang");
+}
+
+TEST(FightTest, BasicFight)
+{
+	Factory factory;
+	Entity* player = factory.selectRole(1);
+	Entity* enemy = new Enemy();
+	cout << "Enemy health before fight: " << enemy->getCurrHealth() << endl;
+	player->fight(enemy);
+	cout << "Enemy health after fight: " << enemy->getCurrHealth() << endl;
 }
