@@ -10,32 +10,39 @@
 #include "assassin.hpp"
 
 class Factory {
+private:
+	std::string username;
 public:
 	Factory() {}
 
 	Player* selectRole(int roleInt)
 	{
 		Player* temp;
-		std::string username = "Elijah Test Fang";
 		switch(roleInt)
 		{
 			case 1:
 				temp = new Warrior(username);			
 				break;
 			case 2:
-				temp = new Archer();
+				temp = new Archer(username);
 				break;
 			case 3:
-				temp = new Magician();
+				temp = new Magician(username);
 				break;
 			case 4:
-				temp = new Assassin();
+				temp = new Assassin(username);
 				break;
 			default:
 				std::cout << "Invalid input" << std::endl;
 				break;	
 		}
 		return temp;
+	}
+	
+	void setName(std::string n)
+	{
+		username = n;
+		//std::cout << "Name has been successfully set!" << std::endl;
 	}
 };
 
