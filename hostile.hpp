@@ -16,6 +16,11 @@ class Hostile {
             attackStrength = 0;
             description = "";
         }
+    
+        void fightPlayer(Player* p) {
+            p->setHealth(p->getHealth() - this->attackStrength());
+        }
+
         void setHealth(double h) {
             health = h;
         }
