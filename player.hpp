@@ -2,6 +2,7 @@
 #define __PLAYER_HPP__
 
 #include "entity.hpp"
+#include "hostile.hpp"
 #include <iostream>
 
 class Player : public Entity {
@@ -31,6 +32,15 @@ public:
 		}
 	}
 	int getEXP() const { return experiencePoints; }
+	
+	void fight(Hostile* target)
+	{
+		target->setHealth(target->getHealth() - this->attack);
+		if(target->getHealth() <= 0.0)
+		{
+			delete target;
+		}
+	}
 };
 
 #endif
