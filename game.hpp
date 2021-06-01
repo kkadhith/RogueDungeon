@@ -123,18 +123,25 @@ public:
 		bool delving = true;
 		cout << "You begin to enter the dungeon" << endl;
 		while(delving) {
-			cout << "Going deeper, you come across a " << hostiles.at(0)->getName() << "." << hostiles.at(0)->getDesc() << endl;
-			Fight();
-			if(isPlaying) {
-				cout << "Would you like to go deeper?" << endl;
-				cout << "Yes : [y]" << endl;
-				cout << "No : anything else" << endl;
-				cin >> input;
-				if(input != "y") delving = false;
-			}
-			else{
+			if(hostiles.empty()){
+				cout << "You cleared the dungeon!" << endl;
 				delving = false;
-				//death text, end game
+				SetupDungeon();
+				//something something, another dungeon something something
+			}else{
+				cout << "Going deeper, you come across a " << hostiles.at(0)->getName() << "." << hostiles.at(0)->getDesc() << endl;
+				Fight();
+				if(isPlaying) {
+					cout << "Would you like to go deeper?" << endl;
+					cout << "Yes : [y]" << endl;
+					cout << "No : anything else" << endl;
+					cin >> input;
+					if(input != "y") delving = false;
+				}
+				else{
+					delving = false;
+					//death text, end game
+				}
 			}
 		}
 	}
