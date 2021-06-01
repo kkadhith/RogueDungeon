@@ -38,6 +38,7 @@ TEST(BasicInitializationTest, FactoryTest)
 	Entity* player = factory.selectRole(1);
 	cout << player->getFullname() << endl;
 	EXPECT_EQ(player->getFullname(), "Elijah Fang");
+	delete player;
 }
 
 TEST(FightTest, BasicFight)
@@ -48,4 +49,6 @@ TEST(FightTest, BasicFight)
 	cout << "Enemy health before fight: " << enemy->getHealth() << endl;
 	player->fight(enemy);
 	cout << "Enemy health after fight: " << enemy->getHealth() << endl;
+	delete player;
+	delete enemy;
 }
