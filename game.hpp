@@ -12,7 +12,11 @@ using namespace std;
 #include "magician.hpp"
 #include "assassin.hpp"
 #include <string>
+#include <vector>
 #include "hostile.hpp"
+#include "zombie.hpp"
+#include "giant.hpp"
+#include "dragon.hpp"
 
 class Game
 {
@@ -21,7 +25,7 @@ private:
 	string input;
 	string userName;
 	int userRoleChoice;
-	vector<Hostile> hostiles;
+	vector<Hostile*> hostiles;
 	Player* player;
 public:
 	Factory factory;
@@ -58,11 +62,12 @@ public:
         void Fight() {
 		bool fin = false;
 		string input;
-		runChance = 60;		//player's chance at escaping from 0 to 100
-		cout << "You face off against a " << enemies.at(0).getDesc() << endl;
+		int run;
+		int runChance = 60;		//player's chance at escaping from 0 to 100
+		cout << "You face off against a " << hostiles.at(0)->getDesc() << endl;
 		while(!fin) {
-			cout << "You have " << player.getHealth() << " health" << endl;
-			cout << "The " << enemies.at(0).getDesc() << "has " << enemies.at(0).getHealth() << " health" << endl;
+			cout << "You have " << player->getCurrHealth() << " health" << endl;
+			cout << "The " << hostiles.at(0)->getDesc() << "has " << hostiles.at(0)->getHealth() << " health" << endl;
 			cout << "Attack : [a]" << endl;
 			cout << "Defend : [d]" << endl;
 			cout << "Use item : [i]" << endl;
@@ -71,7 +76,7 @@ public:
 			cout << "Anything else to wait" << endl;
 			cin >> input;
 			if(input == "a"){
-				player.fight(enemies.at(0));
+				player->fight(hostiles.at(0));
 			}else if(input == "d") {
 				//player.defend();
 			} else if(input == "i") {
@@ -81,31 +86,71 @@ public:
 			} else if(input == "s") {
 				//player.abilities();
 			} else if(input == "r") {
-				int run = rand() % 100;
+				run = rand() % 100;
 			}
-			cout << "The " << enemies.at(0).getDesc() << "attacks you" << endl;
-			enemies.at(0).fightPlayer(player);
-			if(run < runChance) {
-				cout << "You got away!" << endl;
-				fin = true;
-			}
-			if(player.getHealth() <= 0) {
+		
+			//enemy action
+			cout << "The " << hostiles.at(0)->getDesc() << "attacks you" << endl;
+			hostiles.at(0)->fightPlayer(player);
+
+			//outcomes
+			if(player->getCurrHealth() <= 0) {
 				//lose
 				fin = true;
 			}
-			if(enemies.at(0).getHealth() <= 0) {
+			if(run < runChance) {
+                                cout << "You got away!" << endl;
+				player->setCurrHealth(player->getMaxHealth());
+                                fin = true;
+                        }
+			if(hostiles.at(0)->getHealth() <= 0) {
 				//win
-				player.updateEXP(/*enemyEXP*/0);
+				cout << "You killed the " << /*hostiles.at(0)->getName() <<*/ "! You got " << /*hostiles.at(0)->getXP() <<*/ "XP and " << /*hostiles.at(0)->getMoney() <<*/ " gold!" << endl;
+				player->updateEXP(/*enemyEXP*/0);
+				//player->addGold();
+				player->setCurrHealth(player->getMaxHealth());
+				delete hostiles.at(0);
+				hostiles.erase(hostiles.begin());
 				fin = true;
 			}
+	
+			//inventory end of fight effects
 		}
 		
 	}
-        	bool IsPlaying() { return isPlaying; }
-        	// void Shop();
-        	// void EnterDungeon();
-
-
+        bool IsPlaying() { return isPlaying; }
+        // void Shop();
+        void EnterDungeon() {
+		bool delving = true;
+		cout << "You begin to enter the dungeon" << endl;
+		while(delving) {
+			cout << "Going deeper, you come across a " << /*hostiles.at(0)->getName() <<*/ "." << hostiles.at(0)->getDesc() << endl;
+			Fight();
+			if(isPlaying) {
+				cout << "Would you like to go deeper?" << endl;
+				cout << "Yes : [y]" << endl;
+				cout << "No : anything else" << endl;
+				cin >> input;
+				if(input != "y") delving == false;
+			}
+			else{
+				delving == false;
+				//death text, end game
+			}
+		}
+	}
+	void SetupDungeon() {
+		for(int i = 0; i < 3; i++) {
+			Hostile* zombie = new Zombie();
+			hostiles.push_back(zombie);
+		}
+		for(int i = 0; i < 2; i++) {
+			Hostile* giant = new Giant();
+			hostiles.push_back(giant);
+		}
+		Hostile* dragon = new Dragon();
+		hostiles.push_back(dragon);
+	}
 };
 
 
