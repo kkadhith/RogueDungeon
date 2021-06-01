@@ -13,7 +13,7 @@ class Dragon : public Hostile {
         Dragon() {
 	    name = "Dragon";
             dragonAttack = 5;
-            health = 0.0;
+            health = 50.0;
             attackStrength = 22;
             description = "The Dragon is a fiery beast! It has a small chance of inflicting you with a burn.";
         }

@@ -8,6 +8,10 @@
 #include "archer.hpp"
 #include "magician.hpp"
 #include "assassin.hpp"
+#include "hostile.hpp"
+#include "zombie.hpp"
+#include "dragon.hpp"
+#include "giant.hpp"
 
 #include <iostream>
 using namespace std;
@@ -48,4 +52,22 @@ TEST(FightTest, BasicFight)
 	cout << "Enemy health before fight: " << enemy->getHealth() << endl;
 	player->fight(enemy);
 	cout << "Enemy health after fight: " << enemy->getHealth() << endl;
+}
+
+TEST(ZombieInit, HostileTest)
+{
+	Zombie z;
+	EXPECT_EQ(z.getHealth(), 10.0);
+}
+
+TEST(GiantInit, HostileTest)
+{
+	Giant g;
+	EXPECT_EQ(g.getHealth(), 25.0);
+}
+
+TEST(DragonInit, HostileTest)
+{
+	Dragon d;
+	EXPECT_EQ(d.getDragonAttack(), 5);
 }
