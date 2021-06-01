@@ -17,10 +17,6 @@ using namespace std;
 #include "zombie.hpp"
 #include "giant.hpp"
 #include "dragon.hpp"
-#include "item.hpp"
-#include "attackpotion.hpp"
-#include "defensepotion.hpp"
-#include "healthpotion.hpp"
 
 class Game
 {
@@ -31,15 +27,18 @@ private:
 	int userRoleChoice;
 	vector<Hostile*> hostiles;
 	Player* player;
-	vector<Item*> inventory;
-	vector<Item*> shop;
-	vector<Item*> afterEffects;
 public:
 	Factory factory;
         Game() {};
         // ~Game() = default;
         void Quit() {
         isPlaying = false;
+	delete player;
+	delete factory;
+	delete inventory;
+	delete shop;
+	delete afterEffects;
+	delete hostiles;
         }
     	void startGameDialogue() {
         	cout << "(This is a text based RPG. Press the character between the brackets [] to select different options.)" << endl;
@@ -78,6 +77,8 @@ public:
 			cout << "Use item : [i]" << endl;
 			cout << "Special ability : [s]" << endl;
 			cout << "Run away : [r]" << endl;
+			cout << "Anything else to wait" << endl;
+			cin >> input;
 			run = 101;
 			bool choosing = true;
 			while(choosing) {
@@ -115,7 +116,7 @@ public:
 					choosing = false;
 				} else cout << "Invalid input" << endl;
 			}
-
+		
 			//enemy action
 			cout << "The " << hostiles.at(0)->getName() << "attacks you" << endl;
 			hostiles.at(0)->fightPlayer(player);
