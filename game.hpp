@@ -159,12 +159,13 @@ public:
 				fin = true;
 			}
 	
-		//inventory end of fight effects
-		for(Item* i : afterEffects) {
-			i->itemAfterEffect(player);
-			delete i;
-		}
-		afterEffects.clear();
+			//inventory end of fight effects
+			for(Item* i : afterEffects) {
+				i->itemAfterEffect(player);
+				delete i;
+			}
+			afterEffects.clear();
+			}
 		}
 	}
         bool IsPlaying() { return isPlaying; }
