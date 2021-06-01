@@ -62,10 +62,10 @@ public:
 		bool fin = false;
 		int run;
 		int runChance = 60;		//player's chance at escaping from 0 to 100
-		cout << "You face off against a " << hostiles.at(0)->getDesc() << endl;
+		cout << "You face off against a " << hostiles.at(0)->getName() << endl;
 		while(!fin) {
 			cout << "You have " << player->getCurrHealth() << " health" << endl;
-			cout << "The " << hostiles.at(0)->getDesc() << "has " << hostiles.at(0)->getHealth() << " health" << endl;
+			cout << "The " << hostiles.at(0)->getName() << "has " << hostiles.at(0)->getHealth() << " health." << endl;
 			cout << "Attack : [a]" << endl;
 			cout << "Defend : [d]" << endl;
 			cout << "Use item : [i]" << endl;
@@ -89,7 +89,7 @@ public:
 			}
 		
 			//enemy action
-			cout << "The " << hostiles.at(0)->getDesc() << "attacks you" << endl;
+			cout << "The " << hostiles.at(0)->getName() << "attacks you" << endl;
 			hostiles.at(0)->fightPlayer(player);
 
 			//outcomes
@@ -104,7 +104,7 @@ public:
                         }
 			if(hostiles.at(0)->getHealth() <= 0) {
 				//win
-				cout << "You killed the " << /*hostiles.at(0)->getName() <<*/ "! You got " << /*hostiles.at(0)->getXP() <<*/ "XP and " << /*hostiles.at(0)->getMoney() <<*/ " gold!" << endl;
+				cout << "You killed the " << hostiles.at(0)->getName() << "! You got " << /*hostiles.at(0)->getXP() <<*/ "XP and " << /*hostiles.at(0)->getMoney() <<*/ " gold!" << endl;
 				player->updateEXP(/*enemyEXP*/0);
 				//player->addGold();
 				player->setCurrHealth(player->getMaxHealth());
@@ -123,7 +123,7 @@ public:
 		bool delving = true;
 		cout << "You begin to enter the dungeon" << endl;
 		while(delving) {
-			cout << "Going deeper, you come across a " << /*hostiles.at(0)->getName() <<*/ "." << hostiles.at(0)->getDesc() << endl;
+			cout << "Going deeper, you come across a " << hostiles.at(0)->getName() << "." << hostiles.at(0)->getDesc() << endl;
 			Fight();
 			if(isPlaying) {
 				cout << "Would you like to go deeper?" << endl;
