@@ -11,6 +11,7 @@ class Dragon : public Hostile {
         int dragonAttack;
     public:
         Dragon() {
+	    name = "Dragon";
             dragonAttack = 5;
             health = 0.0;
             attackStrength = 22;

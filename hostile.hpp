@@ -13,8 +13,10 @@ class Hostile {
         double health;
         int attackStrength;
         string description;
+	string name;
     public:
         Hostile() {
+	    name = "";
             health = 0.0;
             attackStrength = 0;
             description = "";
@@ -42,7 +44,12 @@ class Hostile {
         string getDesc() {
             return description;
         }
-
+	void setName(string n) {
+	    name = n;
+	}
+	string getName() {
+	    return name;
+	}
 };
 
 
