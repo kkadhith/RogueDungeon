@@ -6,8 +6,10 @@
 
 class AttackPotion : public Item {
 private:
-        int potionvalue = 5;
+        int potionvalue;
+	string name;
 public:
+	AttackPotion() : potionvalue(5), name("attack potion") {}
         void itemEffect(Player* p) {
                 p->setAttack(p->getAttack() + potionvalue);
         }
@@ -17,7 +19,7 @@ public:
         void itemAfterEffect(Player*) {
 		p->setAttack(p->getAttack() - potionvalue);
 	}
-
+	string getName() { return name; }
 
 };
 #endif

@@ -8,7 +8,7 @@ public:
 	virtual void itemEffect(Player*) = 0;
 	virtual void printItemEffect() = 0;
 	virtual void itemAfterEffect(Player*) = 0;
-	
+	virtual string getName() = 0;
 };
 
 #endif
