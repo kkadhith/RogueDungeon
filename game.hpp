@@ -40,6 +40,12 @@ public:
         // ~Game() = default;
         void Quit() {
         isPlaying = false;
+	delete player;
+	delete factory;
+	delete inventory;
+	delete shop;
+	delete afterEffects;
+	delete hostiles;
         }
     	void startGameDialogue() {
         	cout << "(This is a text based RPG. Press the character between the brackets [] to select different options.)" << endl;
