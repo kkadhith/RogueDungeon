@@ -16,7 +16,7 @@ public:
         void printItemEffect() {
                 cout << "Attack potion that temporarily increases attack by 5";
         }
-        void itemAfterEffect(Player*) {
+        void itemAfterEffect(Player* p) {
 		p->setAttack(p->getAttack() - potionvalue);
 	}
 	string getName() { return name; }

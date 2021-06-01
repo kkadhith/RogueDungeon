@@ -6,18 +6,20 @@
 
 class DefensePotion : public Item {
 private:
-        int potionvalue = 5;
+        int potionvalue;
+	string name;
 public:
+	DefensePotion() : potionvalue(5), name("defense potion") {}
         void itemEffect(Player* p) {
                 p->setDefense(p->getDefense() + potionvalue);
         }
         void printItemEffect() {
                 cout << "Defense potion that temporarily increases defense by 5";
         }
-        void itemAfterEffect(Player*) {
+        void itemAfterEffect(Player* p) {
                 p->setDefense(p->getDefense() - potionvalue);
         }
-
+	string getName() { return name; }
 
 };
 #endif

@@ -89,9 +89,24 @@ public:
 					//player.defend();
 					choosing = false;
 				} else if(input == "i") {
-					//ShowInv();
-					//cin >> input;
-					//player.useItem(inventory.at(input));
+					printInv();
+					cin >> input
+					int invIndex;
+					bool checked = false;
+					do {
+						cin >> input;
+						if(is_number(input)) {
+							invIndex = stoi(input);
+							if(invIndex <= inventory.size()) checked = true;
+						}
+					} while(!checked);
+					if(invIndex != inventory.size()){
+						inventory.at(input)->itemEffect(player);
+						cout << "You used the " << inventory.at(input)
+						afterEffects.push_back(inventory.at(input));
+						inventory.erase(input);
+						choosing = false;
+					}
 				} else if(input == "s") {
 					//player.abilities();
 					choosing = false;
@@ -126,9 +141,12 @@ public:
 				fin = true;
 			}
 	
-			//inventory end of fight effects
+		//inventory end of fight effects
+		for(Item* i : afterEffects) {
+			i->itemAfterEffect(player);
+			delete i;
 		}
-		
+		afterEffects.clear();
 	}
         bool IsPlaying() { return isPlaying; }
         // void Shop();
@@ -175,7 +193,16 @@ public:
 			cout << "No items in inventory" << endl;
 		} else{
 			for(unsigned i = 0; i < inventory.size(); i++) {
-				cout << "[" << i << "]:" << 
+				cout << "[" << i << "]:" << inventory.at(i)->getName() << " - " << inventory.at(i)->printItemEffect() << endl;
+			}
+		}
+		cout << "[" << inventory.size() << "]: return" << endl;
+	}
+	bool is_number(string& s) {
+		string::const_iterator it = s.begin();
+		while(it != s.end() && isdigit(*it)) ++it;
+		return !s.empty() && it == s.end();
+	}
 };
 
 

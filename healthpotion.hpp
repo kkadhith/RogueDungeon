@@ -6,8 +6,10 @@
 
 class HealthPotion : public Item {
 private:
-	int potionvalue = 15;
+	int potionvalue;
+	string name;
 public:
+	HealthPotion() : potionvalue(15), name("health potion") {}
 	void itemEffect(Player* p) {
 		p->setCurrHealth(p->getCurrHealth() + potionvalue);
 	}
@@ -15,7 +17,7 @@ public:
 		cout << "Healing potion that heals for 15 hp";
 	}
         void itemAfterEffect(Player*) {}
-
+	string getName() { return name; }
 
 };
 #endif
