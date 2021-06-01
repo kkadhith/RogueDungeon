@@ -21,7 +21,9 @@ This class diagram is a representation of the Abstract Factory Design pattern as
  > * Plan one more sprint (that you will not necessarily complete before the end of the quarter). Your In-progress and In-testing columns should be empty (you are not doing more work currently) but your TODO column should have a full sprint plan in it as you have done before. This should include any known bugs (there should be some) or new features you would like to add. These should appear as issues/cards on your Kanban board. 
  
  ## Screenshots
- > Screenshots of the input/output after running your application
+ ![Screenshot 2021-06-01 105058](https://user-images.githubusercontent.com/81644831/120368940-80326980-c2c7-11eb-9495-03a2d0e16a1a.png)
+ ![Screenshot 2021-06-01 105316](https://user-images.githubusercontent.com/81644831/120369011-95a79380-c2c7-11eb-9bef-a5d66efc1aab.png)
+
  ## Installation/Usage
  In order to play this text based RPG, first clone the repo. Next, run CMake, which will create a test file used for testing purposes and `main`, which is the game executable. Running `./main` will allow you to play the game and instructions on how to navigate the menu will be displayed.
  ## Testing
