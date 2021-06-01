@@ -21,5 +21,5 @@ This class diagram is a representation of the Abstract Factory Design pattern as
  ## Installation/Usage
  In order to play this text based RPG, first clone the repo. Next, run CMake, which will create a test file used for testing purposes and `main`, which is the game executable. Running `./main` will allow you to play the game and instructions on how to navigate the menu will be displayed.
  ## Testing
- > We validated this project using GTest module, which can be run locally after cloning the repo.
+We validated this project using GTest module, which can be run locally after cloning the repo.
  
