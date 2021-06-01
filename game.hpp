@@ -44,6 +44,12 @@ public:
 		for(Hostile* h : hostiles) {
 			delete h;
 		}
+		for(Item* i : inventory) {
+			delete i;
+		}
+		for(Item* i : afterEffects) {
+			delete i;
+		}
         }
     	void startGameDialogue() {
         	cout << "(This is a text based RPG. Press the character between the brackets [] to select different options.)" << endl;
