@@ -41,7 +41,6 @@ public:
         	cout << "Quit Game      : [q]" << endl;
     	}	
     	void Begin() {
-		string userName;
         	cout << "Welcome to Generic Text RPG!" << endl;
         	cout << "Defeat enemies in each dungeon in order to level up and complete the game!" << endl;
         	cout << "Your progress will automatically be saved every dungeon you complete." << endl;
@@ -61,7 +60,6 @@ public:
     	}
         void Fight() {
 		bool fin = false;
-		string input;
 		int run;
 		int runChance = 60;		//player's chance at escaping from 0 to 100
 		cout << "You face off against a " << hostiles.at(0)->getDesc() << endl;
@@ -75,6 +73,7 @@ public:
 			cout << "Run away : [r]" << endl;
 			cout << "Anything else to wait" << endl;
 			cin >> input;
+			run = 101;
 			if(input == "a"){
 				player->fight(hostiles.at(0));
 			}else if(input == "d") {
@@ -131,10 +130,10 @@ public:
 				cout << "Yes : [y]" << endl;
 				cout << "No : anything else" << endl;
 				cin >> input;
-				if(input != "y") delving == false;
+				if(input != "y") delving = false;
 			}
 			else{
-				delving == false;
+				delving = false;
 				//death text, end game
 			}
 		}
