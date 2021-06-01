@@ -1,6 +1,9 @@
 #ifndef __HOSTILE_HPP__
 #define __HOSTILE_HPP__
 
+#include "entity.hpp"
+#include "player.hpp"
+
 #include <string>
 
 using namespace std;
@@ -17,8 +20,8 @@ class Hostile {
             description = "";
         }
     
-        void fightPlayer(Player* p) {
-            p->setHealth(p->getHealth() - this->attackStrength());
+        void fightPlayer(Entity* p) {
+            p->setCurrHealth(p->getCurrHealth() - this->attackStrength);
         }
 
         void setHealth(double h) {

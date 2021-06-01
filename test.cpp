@@ -34,17 +34,18 @@ TEST(BasicInitializationTest, NewWarrior)
 TEST(BasicInitializationTest, FactoryTest)
 {
 	Factory factory;
+	factory.setName("Elijah Fang");
 	Entity* player = factory.selectRole(1);
 	cout << player->getFullname() << endl;
-	EXPECT_EQ(player->getFullname(), "Elijah Test Fang");
+	EXPECT_EQ(player->getFullname(), "Elijah Fang");
 }
 
 TEST(FightTest, BasicFight)
 {
 	Factory factory;
-	Entity* player = factory.selectRole(1);
-	Entity* enemy = new Enemy();
-	cout << "Enemy health before fight: " << enemy->getCurrHealth() << endl;
+	Player* player = factory.selectRole(1);
+	Hostile* enemy = new Hostile();
+	cout << "Enemy health before fight: " << enemy->getHealth() << endl;
 	player->fight(enemy);
-	cout << "Enemy health after fight: " << enemy->getCurrHealth() << endl;
+	cout << "Enemy health after fight: " << enemy->getHealth() << endl;
 }
