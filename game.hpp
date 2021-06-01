@@ -40,6 +40,10 @@ public:
         // ~Game() = default;
         void Quit() {
         	isPlaying = false;
+		delete player;
+		for(Hostile* h : hostiles) {
+			delete h;
+		}
         }
     	void startGameDialogue() {
         	cout << "(This is a text based RPG. Press the character between the brackets [] to select different options.)" << endl;
@@ -73,7 +77,7 @@ public:
 		cout << endl;
 		while(!fin) {
 			cout << "You have " << player->getCurrHealth() << " health" << endl;
-			cout << "The " << hostiles.at(0)->getName() << "has " << hostiles.at(0)->getHealth() << " health." << endl;
+			cout << "The " << hostiles.at(0)->getName() << " has " << hostiles.at(0)->getHealth() << " health." << endl;
 			cout << "Attack : [a]" << endl;
 			cout << "Defend : [d]" << endl;
 			cout << "Use item : [i]" << endl;
@@ -135,7 +139,7 @@ public:
 		
 			//enemy action
 			cout << endl;
-			cout << "The " << hostiles.at(0)->getName() << "attacks you" << endl;
+			cout << "The " << hostiles.at(0)->getName() << " attacks you" << endl;
 			hostiles.at(0)->fightPlayer(player);
 
 			//outcomes
@@ -151,7 +155,7 @@ public:
 			if(hostiles.at(0)->getHealth() <= 0) {
 				//win
 				cout << "You killed the " << hostiles.at(0)->getName() << "! You got " << /*hostiles.at(0)->getXP() <<*/ "XP and " << /*hostiles.at(0)->getMoney() <<*/ " gold!" << endl;
-				player->updateEXP(/*enemyEXP*/0);
+				//player->updateEXP(/*enemyEXP*/0);
 				//player->addGold();
 				player->setCurrHealth(player->getMaxHealth());
 				delete hostiles.at(0);
