@@ -17,10 +17,6 @@ using namespace std;
 #include "zombie.hpp"
 #include "giant.hpp"
 #include "dragon.hpp"
-#include "item.hpp"
-#include "attackpotion.hpp"
-#include "defensepotion.hpp"
-#include "healthpotion.hpp"
 
 class Game
 {
@@ -31,9 +27,6 @@ private:
 	int userRoleChoice;
 	vector<Hostile*> hostiles;
 	Player* player;
-	vector<Item*> inventory;
-	vector<Item*> shop;
-	vector<Item*> afterEffects;
 public:
 	Factory factory;
         Game() {};
@@ -84,29 +77,23 @@ public:
 			cout << "Use item : [i]" << endl;
 			cout << "Special ability : [s]" << endl;
 			cout << "Run away : [r]" << endl;
+			cout << "Anything else to wait" << endl;
+			cin >> input;
 			run = 101;
-			bool choosing = true;
-			while(choosing) {
-				cin >> input;
-				if(input == "a"){
-					player->fight(hostiles.at(0));
-					choosing = false;
-				}else if(input == "d") {
-					//player.defend();
-					choosing = false;
-				} else if(input == "i") {
-					//ShowInv();
-					//cin >> input;
-					//player.useItem(inventory.at(input));
-				} else if(input == "s") {
-					//player.abilities();
-					choosing = false;
-				} else if(input == "r") {
-					run = rand() % 100;
-					choosing = false;
-				} else cout << "Invalid input" << endl;
+			if(input == "a"){
+				player->fight(hostiles.at(0));
+			}else if(input == "d") {
+				//player.defend();
+			} else if(input == "i") {
+				//ShowInv();
+				//cin >> input;
+				//player.useItem(inventory.at(input));
+			} else if(input == "s") {
+				//player.abilities();
+			} else if(input == "r") {
+				run = rand() % 100;
 			}
-
+		
 			//enemy action
 			cout << "The " << hostiles.at(0)->getName() << "attacks you" << endl;
 			hostiles.at(0)->fightPlayer(player);
@@ -176,12 +163,6 @@ public:
 		Hostile* dragon = new Dragon();
 		hostiles.push_back(dragon);
 	}
-	void printInv() {
-		if(inventory.empty()) {
-			cout << "No items in inventory" << endl;
-		} else{
-			for(unsigned i = 0; i < inventory.size(); i++) {
-				cout << "[" << i << "]:" << 
 };
 
 
