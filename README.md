@@ -10,7 +10,8 @@ Authors: [Nathan Lee](https://github.com/ENathanLee) [Adhith Karthikeyan](https:
  * Another design pattern that we will incorporate is the decorator pattern. In almost all RPGs, weapons/tools can be upgraded or modified. A single weapon can have many combinations of modifications, and creating a subclass for every modification of a weapon/tool can quickly get overwhelming. A decorator can simplify this problem since a single class can modify the base weapon(s).
 
 ## Class Diagram
-![Generic Text RPG(1)](https://user-images.githubusercontent.com/24882134/117527319-f02b2980-af7f-11eb-9d41-9f99c9fbfb47.png)
+![Generic Text RPG(1)](![FactoryPattern](https://user-images.githubusercontent.com/24882134/120287862-80554980-c274-11eb-818b-35d22580e153.png)
+
 This class diagram is a representation of the Abstract Factory Design pattern, since a single "EntityFactory" creates a factory that then creates entities that change based on the stages of the game (Early, Mid, Late). The diagram is not a complete representation of the game--we believe we need a better understanding of Factory Design Patterns, which will be gone over next week in class. Since this game has many different entities, objects, and customization features, it quickly becomes very complex. We believe our model needs improvement, so we will be getting TA guidance for our diagram design.
  
  > ## Phase III
