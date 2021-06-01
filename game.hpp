@@ -17,6 +17,11 @@ using namespace std;
 #include "zombie.hpp"
 #include "giant.hpp"
 #include "dragon.hpp"
+#include <iostream>
+#include "item.hpp"
+#include "healthpotion.hpp"
+#include "attackpotion.hpp"
+#include "defensepotion.hpp"
 
 class Game
 {
@@ -26,10 +31,12 @@ private:
 	string userName;
 	int userRoleChoice;
 	vector<Hostile*> hostiles;
+	vector<Item*> inventory;
+	vector<Item*> afterEffects;
 	Player* player;
 public:
 	Factory factory;
-        Game() {};
+        Game() {}
         // ~Game() = default;
         void Quit() {
         	isPlaying = false;
@@ -85,7 +92,7 @@ public:
 					choosing = false;
 				} else if(input == "i") {
 					printInv();
-					cin >> input
+					cin >> input;
 					int invIndex;
 					bool checked = false;
 					do {
@@ -96,10 +103,10 @@ public:
 						}
 					} while(!checked);
 					if(invIndex != inventory.size()){
-						inventory.at(input)->itemEffect(player);
-						cout << "You used the " << inventory.at(input)
-						afterEffects.push_back(inventory.at(input));
-						inventory.erase(input);
+						inventory.at(invIndex)->itemEffect(player);
+						cout << "You used the " << inventory.at(invIndex);
+						afterEffects.push_back(inventory.at(invIndex));
+						inventory.erase(inventory.begin() + invIndex);
 						choosing = false;
 					}
 				} else if(input == "s") {
@@ -142,6 +149,7 @@ public:
 			delete i;
 		}
 		afterEffects.clear();
+		}
 	}
         bool IsPlaying() { return isPlaying; }
         // void Shop();
@@ -188,7 +196,9 @@ public:
 			cout << "No items in inventory" << endl;
 		} else{
 			for(unsigned i = 0; i < inventory.size(); i++) {
-				cout << "[" << i << "]:" << inventory.at(i)->getName() << " - " << inventory.at(i)->printItemEffect() << endl;
+				cout << "[" << i << "]:" << inventory.at(i)->getName() << " - ";
+				inventory.at(i)->printItemEffect();
+				cout << endl;
 			}
 		}
 		cout << "[" << inventory.size() << "]: return" << endl;

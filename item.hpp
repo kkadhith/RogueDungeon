@@ -5,6 +5,7 @@
 
 class Item {
 public:	
+	Item() {}
 	virtual void itemEffect(Player*) = 0;
 	virtual void printItemEffect() = 0;
 	virtual void itemAfterEffect(Player*) = 0;
