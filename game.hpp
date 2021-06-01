@@ -65,7 +65,7 @@ public:
 		cout << "You face off against a " << hostiles.at(0)->getName() << endl;
 		while(!fin) {
 			cout << "You have " << player->getCurrHealth() << " health" << endl;
-			cout << "The " << hostiles.at(0)->getName() << "has " << hostiles.at(0)->getHealth() << " health." << endl;
+			cout << "The " << hostiles.at(0)->getName() << " has " << hostiles.at(0)->getHealth() << " health." << endl;
 			cout << "Attack : [a]" << endl;
 			cout << "Defend : [d]" << endl;
 			cout << "Use item : [i]" << endl;
@@ -89,7 +89,7 @@ public:
 			}
 		
 			//enemy action
-			cout << "The " << hostiles.at(0)->getName() << "attacks you" << endl;
+			cout << "The " << hostiles.at(0)->getName() << " attacks you" << endl;
 			hostiles.at(0)->fightPlayer(player);
 
 			//outcomes
