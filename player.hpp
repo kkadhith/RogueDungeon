@@ -36,10 +36,6 @@ public:
 	void fight(Hostile* target)
 	{
 		target->setHealth(target->getHealth() - this->attack);
-		if(target->getHealth() <= 0.0)
-		{
-			delete target;
-		}
 	}
 };
 

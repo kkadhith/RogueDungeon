@@ -17,6 +17,7 @@ int main()
     	else
 	{
         	game.Begin();
+		game.SetupDungeon();
     	}
     	dec = "";
         while(game.IsPlaying()) 
@@ -33,7 +34,7 @@ int main()
         	}
         	else if(dec == "e") 
 		{
-        	            // game.EnterDungeon();
+        	            game.EnterDungeon();
         	}
         }
         return 0;
