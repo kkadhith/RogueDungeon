@@ -70,6 +70,7 @@ public:
 		int run;
 		int runChance = 60;		//player's chance at escaping from 0 to 100
 		cout << "You face off against a " << hostiles.at(0)->getName() << endl;
+		cout << endl;
 		while(!fin) {
 			cout << "You have " << player->getCurrHealth() << " health" << endl;
 			cout << "The " << hostiles.at(0)->getName() << "has " << hostiles.at(0)->getHealth() << " health." << endl;
@@ -78,8 +79,6 @@ public:
 			cout << "Use item : [i]" << endl;
 			cout << "Special ability : [s]" << endl;
 			cout << "Run away : [r]" << endl;
-			cout << "Anything else to wait" << endl;
-			cin >> input;
 			run = 101;
 			bool choosing = true;
 			while(choosing) {
@@ -91,15 +90,19 @@ public:
 					//player.defend();
 					choosing = false;
 				} else if(input == "i") {
+					cout << endl;
 					printInv();
-					cin >> input;
 					int invIndex;
 					bool checked = false;
 					do {
 						cin >> input;
 						if(is_number(input)) {
 							invIndex = stoi(input);
-							if(invIndex <= inventory.size()) checked = true;
+							if(invIndex <= inventory.size()) { 
+								checked = true;
+							} else {
+								cout << "That is not an item, select again" << endl;
+							}
 						}
 					} while(!checked);
 					if(invIndex != inventory.size()){
@@ -108,6 +111,12 @@ public:
 						afterEffects.push_back(inventory.at(invIndex));
 						inventory.erase(inventory.begin() + invIndex);
 						choosing = false;
+					} else {
+						cout << "Attack : [a]" << endl;
+                        			cout << "Defend : [d]" << endl;
+                        			cout << "Use item : [i]" << endl;
+                        			cout << "Special ability : [s]" << endl;
+                        			cout << "Run away : [r]" << endl;
 					}
 				} else if(input == "s") {
 					//player.abilities();
@@ -115,10 +124,17 @@ public:
 				} else if(input == "r") {
 					run = rand() % 100;
 					choosing = false;
-				} else cout << "Invalid input" << endl;
+				} else {
+					cout << "Invalid input" << endl;
+					cout << "Attack : [a]" << endl;
+                        		cout << "Defend : [d]" << endl;
+                        		cout << "Use item : [i]" << endl;
+                        		cout << "Special ability : [s]" << endl;
+                        		cout << "Run away : [r]" << endl;
 			}
 		
 			//enemy action
+			cout << endl;
 			cout << "The " << hostiles.at(0)->getName() << "attacks you" << endl;
 			hostiles.at(0)->fightPlayer(player);
 
@@ -176,6 +192,7 @@ public:
 					delving = false;
 					//death text, end game
 				}
+				cout << endl;
 			}
 		}
 	}
