@@ -1,4 +1,4 @@
-# Generic Text RPG
+# RogueDungeon RPG
  
 Authors: [Nathan Lee](https://github.com/ENathanLee) [Adhith Karthikeyan](https://github.com/kkadhith) [Elijah Fang](https://githhub.com/efang006) 
  
